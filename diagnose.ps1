@@ -59,6 +59,12 @@ if ($profExists) {
 $profState = if ($profExists) { if ($profHasEnc) { 'あり+UTF-8設定あり' } else { 'あり(UTF-8設定なし)' } } else { '(プロファイル無し)' }
 Add-Row 'PowerShell profile UTF-8' 'UTF-8設定あり' $profState $profHasEnc
 
+# --- 8. Python の実効出力エンコーディング(任意) ---
+$pyEnc = (python -c "import sys;print(sys.stdout.encoding)" 2>$null)
+if ([string]::IsNullOrEmpty($pyEnc)) { $pyEnc = '(python無し=対象外)' }
+$pyOk = ($pyEnc -match 'utf-8') -or ($pyEnc -like '*対象外*')
+Add-Row 'Python stdout encoding' 'utf-8' $pyEnc $pyOk
+
 # --- 結果表示 ---
 $rows | Format-Table -AutoSize | Out-String | Write-Host
 

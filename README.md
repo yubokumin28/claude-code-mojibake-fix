@@ -87,7 +87,11 @@ templates/
   powershell-profile.ps1  … PowerShellプロファイルの例
   gitconfig-snippet.txt   … git設定の例
   CLAUDE.md.example       … Claude Code用 言語ルールの例(日英)
+docs/
+  deep-layer-utf8.md      … サブエージェント/バックグラウンド/ローカルLLMの化け対策
 ```
+
+> **端末やgitの設定だけでは足りない場合があります。** 自作コードで `subprocess` や Ollama を呼ぶ、サブエージェントやバックグラウンドに仕事を渡す ―― こうした「深層」で化けや作業迷子を防ぐ実践は [`docs/deep-layer-utf8.md`](docs/deep-layer-utf8.md) にまとめました。
 
 ---
 
