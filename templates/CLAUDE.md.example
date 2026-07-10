@@ -1,0 +1,32 @@
+# CLAUDE.md 言語ルールの例 / Language rule examples
+
+Claude Code のプロジェクトルート、または `~/.claude/CLAUDE.md` に貼る言語ルールの例です。
+必要な行だけ抜き出して使ってください。
+
+---
+
+## 日本語で使う人向け(推奨セット)
+
+```
+## 言語・文字コード運用
+- 常に日本語で回答すること(Always respond in Japanese)。
+- 変数名・関数名・ファイル名は英語(Keep variable/function/file names in English)。
+- 技術用語は英語を併記(例: フック(hook)、状態(state))。
+- Windows環境はUTF-8前提(chcp 65001 / PYTHONUTF8=1)。
+- ExcelでCSVを開く用途のみ BOM付きUTF-8(utf-8-sig)。コード/JSONにBOMは付けない。
+- git は core.quotepath=false(日本語ファイル名をそのまま表示)。
+- 禁止: WindowsシステムロケールのUTF-8ベータ有効化(全アプリに波及する地雷)。
+```
+
+---
+
+## English-primary users
+
+```
+## Language & Encoding
+- Keep variable/function/file names in English.
+- On Windows, assume UTF-8 (chcp 65001, PYTHONUTF8=1).
+- Save CSV for Excel as UTF-8 with BOM (utf-8-sig); never add BOM to code/JSON.
+- Set git core.quotepath=false to show non-ASCII filenames as-is.
+- Do NOT enable the Windows "Beta: Use Unicode UTF-8" system locale.
+```
