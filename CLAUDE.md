@@ -1,0 +1,5 @@
+# 260710_claude-code-mojibake-fix
+
+PowerShell/Claude Code/gitの文字化け原因を診断スクリプトで特定し、テンプレート適用で修正できるツール群を提供する
+診断スクリプト(diagnose.ps1)・テンプレート群・深層レイヤー対策ドキュメントを含む初版完成済み
+README・diagnose.ps1の内容をベースに、GitHubへの公開に向けた整備またはユーザーへの導入手順改善
