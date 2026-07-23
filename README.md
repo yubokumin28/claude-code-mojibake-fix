@@ -108,7 +108,13 @@ templates/
   CLAUDE.md.example               … Claude Code用 言語ルールの例(日英)
 docs/
   deep-layer-utf8.md              … サブエージェント/バックグラウンド/ローカルLLMの化け対策
-  anti-hallucination-mojibake.md  … 化けたtool出力をAIに信じさせないための実測裏取り(新規)
+  anti-hallucination-mojibake.md  … 化けたtool出力をAIに信じさせないための実測裏取り
+hooks/                            … Claude Code に自動注入する動作フック(v2 追加)
+  posttool-fabrication-guard.py   … sentinel検知(縺/繧/繝/�/truncated/NativeCommandError等)
+  stop-claim-audit.py             … 完了主張ゲート(化け出力後の再検証を強制)
+  pretool-destructive-guard.py    … git reset --hard 等の不可逆操作をpre-toolでブロック
+  settings.json.example           … 3フックを ~/.claude/settings.json に配線するテンプレ
+  README.md                       … フックのセットアップ手順
 ```
 
 > **端末やgitの設定だけでは足りません。** 自作コードで `subprocess` や Ollama を呼ぶ、AIエージェントに仕事を渡す ―― こうした「深層」と「AIとの受け渡し」で化けや **嘘の完了報告** を防ぐ実践は [`docs/deep-layer-utf8.md`](docs/deep-layer-utf8.md) と [`docs/anti-hallucination-mojibake.md`](docs/anti-hallucination-mojibake.md) にまとめました。

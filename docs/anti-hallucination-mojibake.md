@@ -28,6 +28,8 @@ Claude Code / Cursor / Cline などのAIコーディング agent が「完了し
 | Anthropic #17407 | Bash exit code の誤検知(exit 0 なのに失敗扱い等) | 成功をリトライして二重実行 |
 | Anthropic #64317 | 並列 tool_call 4件以上で buffer bleed(出力混線) | 別コマンドの結果を混ぜて解釈 |
 | Anthropic #36596 | 長い出力の末尾が `... (truncated)` で切れる | 見えない部分を推測で補う |
+| Anthropic #42417 | UTF-8ファイルをCP932でRead → 縺/繧/繝 化け | 化けた文字列を実体と誤認 |
+| Anthropic #18856 | Windowsで Bash tool が `(No content)` 空返し | 存在しない状態を確定扱い |
 | posh-git #109 | PowerShell 5.1 で git stderr が ErrorRecord に包まれ `$?=false` | exit 0 の成功が「失敗」扱い |
 
 これらは表層のUTF-8とは無関係に発生します。**修正を待つのではなく、運用で検知する**方針が現実解です。

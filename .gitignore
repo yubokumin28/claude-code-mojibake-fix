@@ -7,3 +7,4 @@
 Thumbs.db
 Desktop.ini
 .DS_Store
+hooks/__pycache__/
